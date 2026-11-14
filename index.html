@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
   --bg:#f6f1e8;--sand:#ece2cf;--ink:#14191b;--soft:#636a6c;--faint:#a9a59c;--line:#e0d8c8;
@@ -163,6 +164,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opa
 .row p{color:var(--soft);font-size:15px;margin-top:8px;max-width:52ch}
 .row .arrow{position:absolute;right:0;top:32px;width:20px;height:20px;color:var(--sun);transition:transform .45s var(--ease)}
 .row:hover .arrow{transform:translate(4px,-4px)}
+a.row .t{padding-right:30px}
 .tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:999px;background:var(--sun-soft);color:#a8492a;margin-top:14px;margin-right:4px;font-weight:500}
 .tag.sea{background:#d5e5e8;color:var(--sea)}
 .tag.grey{background:var(--sand);color:var(--soft)}
@@ -170,8 +172,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opa
 .about{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center;margin-top:34px}
 @media (min-width:900px){.about{grid-template-columns:180px 1fr;gap:34px}}
 .about .ph{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--sand)}
-.about img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transform:scale(1.12);transition:filter 1.4s var(--ease),transform 1.4s var(--ease)}
-.about.in img{filter:none;transform:none}
+.about img{width:100%;height:100%;object-fit:cover;}
+.js .about img{filter:grayscale(1) contrast(1.05);transform:scale(1.12);transition:filter 1.4s var(--ease),transform 1.4s var(--ease)}
+.js .about.in img{filter:none;transform:none}
 .about p{font-size:15px;color:var(--soft);max-width:44ch}
 .about p strong{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;color:var(--ink);margin-bottom:8px}
 
@@ -187,6 +190,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opa
 
 .look li{list-style:none;display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);font-size:clamp(17px,1.6vw,21px);letter-spacing:-.01em}
 .look li:first-child{border-top:1px solid var(--line)}
+.look li b{display:block;font-weight:500;color:var(--ink)}
+.look li span{color:var(--soft);font-size:.82em;line-height:1.45}
+.look li span b{font-size:1.2em;margin-bottom:3px}
 .look li i{font-style:normal;color:var(--sun);font-family:var(--serif);font-size:24px;line-height:1.1}
 
 /* contact */
@@ -206,8 +212,8 @@ footer{border-top:1px solid var(--line);margin-top:70px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:26px;padding-bottom:calc(30px + env(safe-area-inset-bottom));color:var(--faint);font-size:12px}
 footer a:hover{color:var(--ink)}
 
-.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.rv.in{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,24px);opacity:0;background:var(--ink);color:#fff;font-size:13px;padding:9px 16px;border-radius:999px;transition:.4s var(--ease);pointer-events:none;z-index:70}
@@ -233,7 +239,7 @@ footer a:hover{color:var(--ink)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
-  .rv{opacity:1;transform:none}
+  .js .rv{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -320,7 +326,6 @@ footer a:hover{color:var(--ink)}
       <div class="cop-card rv">
         <h3>Why I'm <em>here</em></h3>
         <p>I'm at COP31 as a Host Country Guest, following sessions on green industrialisation, climate finance and technology, and writing event reports for our thematic research work.</p>
-        <p class="note">Observer access. I don't negotiate or represent any delegation.</p>
       </div>
       <div class="cop-card rv d1">
         <h3>What is a <em>Climate Envoy?</em></h3>
@@ -346,7 +351,7 @@ footer a:hover{color:var(--ink)}
     <div>
       <a class="row rv" href="https://kenges.space" target="_blank" rel="noopener" data-cursor="Visit">
         <div class="t"><b>Kengeş</b><small>2026 —</small></div>
-        <p>Statistical analysis for researchers. Bring your data, approve the method, get results with the reasoning attached. The math is computed, not guessed; AI only explains it.</p>
+        <p>Statistical analysis for researchers. Bring your data, approve the method, get results with the reasoning attached. Calculations follow defined statistical methods, not model guesses. AI helps along the way; the researcher makes the calls.</p>
         <span class="tag">Working MVP</span><span class="tag grey">Founder &amp; Developer</span>
         <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11L11 5M6 5h5v5"/></svg>
       </a>
@@ -385,12 +390,12 @@ footer a:hover{color:var(--ink)}
   <section class="sec" id="numbers" style="padding-top:110px">
     <div class="shead rv"><span class="n">04</span><h2>By the numbers</h2><p>Some serious, some not.</p></div>
     <div class="nums">
-      <div class="num rv"><strong data-count="2655" data-sep="1">0</strong><span>automated tests keeping Kengeş honest</span></div>
-      <div class="num rv d1"><strong data-count="2">0</strong><span>programmes, studied at the same time</span></div>
-      <div class="num rv d2"><strong data-count="3" data-suffix="h">0</strong><span>daily commute across İstanbul</span></div>
-      <div class="num rv"><strong data-count="46">0</strong><span>plate code of home, Kahramanmaraş</span></div>
+      <div class="num rv"><strong data-count="2655" data-sep="1">2,655</strong><span>automated tests keeping Kengeş honest (as of Nov 2026)</span></div>
+      <div class="num rv d1"><strong data-count="2">2</strong><span>programmes, studied at the same time</span></div>
+      <div class="num rv d2"><strong data-count="3" data-suffix="h">3h</strong><span>daily commute across İstanbul</span></div>
+      <div class="num rv"><strong data-count="46">46</strong><span>plate code of home, Kahramanmaraş</span></div>
       <div class="num rv d1"><strong data-count="0">0</strong><span>business cards printed (hence this page)</span></div>
-      <div class="num rv d2"><strong data-count="1">0</strong><span>conversation away from working together</span></div>
+      <div class="num rv d2"><strong data-count="1">1</strong><span>conversation away from working together</span></div>
     </div>
   </section>
 </div></div>
@@ -400,9 +405,9 @@ footer a:hover{color:var(--ink)}
   <section class="sec" id="looking">
     <div class="shead rv"><span class="n">05</span><h2>Looking for</h2><p>If one of these is you, let's talk.</p></div>
     <ul class="look">
-      <li class="rv"><i>a.</i>Researchers to pilot Kengeş with real data</li>
-      <li class="rv d1"><i>b.</i>Research and internship opportunities in AI and data science</li>
-      <li class="rv d2"><i>c.</i>People building tools for science and climate</li>
+      <li class="rv"><i>a.</i><span><b>Research collaborations</b>Data analytics, statistics and human–AI interaction.</span></li>
+      <li class="rv d1"><i>b.</i><span><b>Kengeş pilots</b>Academic test users, methodology feedback and research partners.</span></li>
+      <li class="rv d2"><i>c.</i><span><b>International opportunities</b>Research internships, graduate programmes and technology teams.</span></li>
     </ul>
   </section>
 
@@ -469,7 +474,7 @@ footer a:hover{color:var(--ink)}
     const step = t => { const p = Math.min((t - t0) / d, 1); el.textContent = fmt(Math.round(to * (1 - Math.pow(1 - p, 4))), el); if (p < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }), {threshold: .6});
-  document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+  document.querySelectorAll('[data-count]').forEach(el => { if (!reduce) el.textContent = fmt(0, el); co.observe(el); });
 
   /* scroll-driven */
   const prog = document.getElementById('progress'), bar = document.getElementById('bar');
